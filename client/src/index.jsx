@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Homepage } from "./homepage";
-import { Login } from "./login";
+import { Login } from "./login/login";
 import { Navigation } from "./navigation";
-import { Logout } from "./logout";
-import { Register } from "./register";
-import { Menu } from "./menu";
-import { Admin } from "./admin";
+import { Logout } from "./login/logout";
+import { Register } from "./login/register";
+import { Menu } from "./menu/menu";
+import { Admin } from "./admin/admin";
 import "./styles.css";
 
 function App() {
