@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Food } from "./food";
 import { Cart } from "./cart";
+import { useNavigate } from "react-router-dom";
 
 export function Menu({ user }) {
   const [foods, setFoods] = useState([]);
@@ -8,8 +9,18 @@ export function Menu({ user }) {
 
   const [cart, setCart] = useState([]);
 
-  function order() {
-    alert(JSON.stringify(cart, null, 2));
+  const navigate = useNavigate();
+
+  async function order({ totalPrice, time }) {
+    const res = await fetch("/api/orders", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cart, totalPrice, time }),
+    });
+
+    if (res.ok) {
+      navigate("/");
+    }
   }
 
   useEffect(() => {
@@ -32,7 +43,12 @@ export function Menu({ user }) {
       {!user.username && <h4>Log in to order</h4>}
       <Cart cart={cart} order={order} disabled={!user.username} />
       {foods.map((food) => (
-        <Food food={food} key={food._id} setCart={setCart} />
+        <Food
+          food={food}
+          key={food._id}
+          setCart={setCart}
+          disabled={!user.username}
+        />
       ))}
     </>
   );

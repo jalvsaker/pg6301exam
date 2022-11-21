@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Food({ food, setCart }) {
+export function Food({ food, setCart, disabled}) {
   const [amount, setAmount] = useState("0");
 
   function handleSubmit(e) {
@@ -26,9 +26,10 @@ export function Food({ food, setCart }) {
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            disabled={disabled}
           />{" "}
         </label>
-        <button>Add to cart</button>
+        <button disabled={disabled}>Add to cart</button>
       </form>
       <hr />
     </div>

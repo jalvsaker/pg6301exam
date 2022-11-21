@@ -7,6 +7,7 @@ import { loginApi, loginMiddleware } from "./loginApi.js";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import { WebSocketServer } from "ws";
+import { orderApi } from "./orderApi.js";
 
 dotenv.config();
 const app = express();
@@ -28,6 +29,7 @@ if (mongodbUrl) {
   app.use(loginMiddleware(client.db(dbName)));
   app.use("/api/login", loginApi(client.db(dbName)));
   app.use("/api/foods", foodApi(client.db(dbName)));
+  app.use("/api/orders", orderApi(client.db(dbName)));
 }
 
 app.use(express.static("../client/dist"));
