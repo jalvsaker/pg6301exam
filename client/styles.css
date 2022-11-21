@@ -1,0 +1,7 @@
+body{
+    font-family: sans-serif;
+}
+
+nav > * {
+    padding-right: 10px;
+}

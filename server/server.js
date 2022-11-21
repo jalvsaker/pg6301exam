@@ -3,9 +3,15 @@ import * as path from "path";
 import dotenv from "dotenv";
 import { MongoClient, ServerApiVersion } from "mongodb";
 import { foodApi } from "./foodApi.js";
+import { loginApi, loginMiddleware } from "./loginApi.js";
+import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
 
 dotenv.config();
 const app = express();
+
+app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(bodyParser.json());
 
 const mongodbUrl = process.env.MONGODB_URL;
 const dbName = process.env.MONGODB_DATABASE;
@@ -18,8 +24,14 @@ if (mongodbUrl) {
   });
 
   await client.connect();
+  app.use("/api/login", loginApi(client.db(dbName)));
+  app.use(loginMiddleware(client.db(dbName)));
   app.use("/api/foods", foodApi(client.db(dbName)));
 }
+
+app.get("/api/user", (req, res) => {
+  res.json(req.user)
+})
 
 app.use(express.static("../client/dist"));
 
