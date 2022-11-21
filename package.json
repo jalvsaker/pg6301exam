@@ -7,6 +7,11 @@
     "dev": "concurrently npm:dev:client npm:dev:server",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",
+    "start": "cd server && npm run start",
+    "build": "cd client && npm run build",
+    "postinstall": "npm run install:client && npm run install:server",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
     "prettier:check": "prettier -c .",
     "prettier:format": "prettier -w .",
     "test": "echo \"Error: no test specified\" && exit 1"
