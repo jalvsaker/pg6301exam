@@ -8,10 +8,12 @@ export function Navigation({ user }) {
       {!user.username && <NavLink to={"/login"}>Log In</NavLink>}
       {!user.username && <NavLink to={"/register"}>Register new user</NavLink>}
       {user.username && (
-        <span>
-          {user.username} <Link to={"/logout"}>Log out</Link>
-        </span>
+        <>
+          <span>Welcome {user.username}</span>
+          <Link to={"/logout"}>Log out</Link>
+        </>
       )}
+      {user.isAdmin && <NavLink to={"/admin"}>Admin panel</NavLink>}
     </nav>
   );
 }

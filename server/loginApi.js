@@ -5,7 +5,8 @@ export function loginApi(db) {
   const collection = "users";
 
   api.get("/", (req, res) => {
-    res.json(req.user);
+    const { username, isAdmin } = req.user;
+    res.json({ username, isAdmin });
   });
 
   api.post("/", async (req, res) => {
@@ -13,9 +14,11 @@ export function loginApi(db) {
 
     const user = await db.collection(collection).findOne({ username });
 
+    const body = { username: user.username, isAdmin: user.isAdmin };
+
     if (user && password === user?.password) {
       res.cookie("username", username, { signed: true });
-      res.json({ username });
+      res.json(body);
     } else {
       res.sendStatus(401);
     }
@@ -25,6 +28,10 @@ export function loginApi(db) {
     const { username, password } = req.body;
 
     const user = { username, password };
+
+    if (await db.collection(collection).findOne({ username })) {
+      return res.sendStatus(401);
+    }
 
     await db.collection(collection).insertOne(user);
 

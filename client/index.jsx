@@ -5,9 +5,10 @@ import { Homepage } from "./homepage";
 import { Login } from "./login";
 import { Navigation } from "./navigation";
 import { Logout } from "./logout";
-
-import "./styles.css";
 import { Register } from "./register";
+import { Menu } from "./menu";
+import { Admin } from "./admin";
+import "./styles.css";
 
 function App() {
   const [user, setUser] = useState({});
@@ -24,9 +25,11 @@ function App() {
       <Navigation user={user} />
       <Routes>
         <Route path={"/"} element={<Homepage />} />
+        <Route path={"/menu"} element={<Menu />} />
         <Route path={"/register"} element={<Register setUser={setUser} />} />
         <Route path={"/login"} element={<Login setUser={setUser} />} />
         <Route path={"/logout"} element={<Logout setUser={setUser} />} />
+        <Route path={"/admin"} element={<Admin user={user} />} />
         <Route path={"/*"} element={<Navigate to={"/"} />} />
       </Routes>
     </BrowserRouter>
