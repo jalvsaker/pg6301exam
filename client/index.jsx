@@ -1,11 +1,21 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  NavLink,
+  Route,
+  Routes,
+} from "react-router-dom";
 import { Homepage } from "./homepage";
 
 function App() {
   return (
     <BrowserRouter>
+      <nav>
+        <NavLink to={"/"}>Home</NavLink>
+        <NavLink to={"/test"}>Test</NavLink>
+      </nav>
       <Routes>
         <Route path={"/"} element={<Homepage />} />
         <Route path={"/test"} element={<h2>test</h2>} />
