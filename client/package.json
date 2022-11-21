@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "parcel watch index.html",
     "build": "parcel build index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "verify": "jest --collectCoverage"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "react-router-dom": "^6.4.3"
   },
   "devDependencies": {
+    "jest": "^29.3.1",
     "parcel": "^2.8.0",
     "process": "^0.11.10"
   }

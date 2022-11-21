@@ -14,7 +14,12 @@
     "install:server": "cd server && npm install",
     "prettier:check": "prettier -c .",
     "prettier:format": "prettier -w .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:client && npm run test:server",
+    "test:client": "cd client && npm run test",
+    "test:server": "cd server && npm run test",
+    "verify": "npm run verify:client && npm run verify:server",
+    "verify:client": "cd client && npm run verify",
+    "verify:server": "cd server && npm run verify"
   },
   "repository": {
     "type": "git",
