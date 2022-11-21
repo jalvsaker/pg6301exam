@@ -6,7 +6,7 @@ import { Login } from "./login";
 import { Navigation } from "./navigation";
 import { Logout } from "./logout";
 
-import "./styles.css"
+import "./styles.css";
 
 function App() {
   const [user, setUser] = useState({});
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     (async () => {
       const res = await fetch("api/user");
-      setUser(await res.json() || {});
+      setUser((await res.json()) || {});
     })();
   }, []);
 

@@ -30,8 +30,8 @@ if (mongodbUrl) {
 }
 
 app.get("/api/user", (req, res) => {
-  res.json(req.user)
-})
+  res.json(req.user);
+});
 
 app.use(express.static("../client/dist"));
 
