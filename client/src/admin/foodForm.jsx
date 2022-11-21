@@ -19,22 +19,26 @@ export function FoodForm({ onSubmit, food, buttonText, resetAfter }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div><label>
-        Name:
-        <input
-          type={"text"}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label></div>
-      <div><label>
-        Price:
-        <input
-          type={"number"}
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-      </label></div>
+      <div>
+        <label>
+          Name:
+          <input
+            type={"text"}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Price:
+          <input
+            type={"number"}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </label>
+      </div>
       <button>{buttonText}</button>
     </form>
   );

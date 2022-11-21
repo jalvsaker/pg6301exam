@@ -42,7 +42,7 @@ export function Admin({ user }) {
       <h3>Change previous foods:</h3>
 
       {foods.map((food) => (
-        <ChangeFood key={food._id} food={food} reload={reload}/>
+        <ChangeFood key={food._id} food={food} reload={reload} />
       ))}
     </>
   );

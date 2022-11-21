@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
 import { Food } from "./food";
+import { Cart } from "./cart";
 
-export function Menu() {
+export function Menu({ user }) {
   const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [cart, setCart] = useState([]);
+
+  function order() {
+    alert(JSON.stringify(cart, null, 2));
+  }
 
   useEffect(() => {
     (async () => {
@@ -22,8 +29,10 @@ export function Menu() {
   return (
     <>
       <h1>Menu</h1>
+      {!user.username && <h4>Log in to order</h4>}
+      <Cart cart={cart} order={order} disabled={!user.username} />
       {foods.map((food) => (
-        <Food food={food} key={food._id} />
+        <Food food={food} key={food._id} setCart={setCart} />
       ))}
     </>
   );

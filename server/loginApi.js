@@ -5,8 +5,8 @@ export function loginApi(db) {
   const collection = "users";
 
   api.get("/", (req, res) => {
-    if (!req.user){
-      return res.sendStatus(401)
+    if (!req.user) {
+      return res.json({});
     }
 
     const { username, isAdmin } = req.user;

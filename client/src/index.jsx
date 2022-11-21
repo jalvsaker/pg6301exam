@@ -16,7 +16,9 @@ function App() {
   useEffect(() => {
     (async () => {
       const res = await fetch("api/login");
-      setUser((await res.json()) || {});
+      if (res.ok) {
+        setUser((await res.json()) || {});
+      }
     })();
   }, []);
 
@@ -25,7 +27,7 @@ function App() {
       <Navigation user={user} />
       <Routes>
         <Route path={"/"} element={<Homepage />} />
-        <Route path={"/menu"} element={<Menu />} />
+        <Route path={"/menu"} element={<Menu user={user} />} />
         <Route path={"/register"} element={<Register setUser={setUser} />} />
         <Route path={"/login"} element={<Login setUser={setUser} />} />
         <Route path={"/logout"} element={<Logout setUser={setUser} />} />
