@@ -4,12 +4,14 @@ export function loginApi(db) {
   const api = express.Router();
   const collection = "users";
 
+  api.get("/", (req, res) => {
+    res.json(req.user);
+  });
+
   api.post("/", async (req, res) => {
     const { username, password } = req.body;
 
     const user = await db.collection(collection).findOne({ username });
-
-    console.log(username, password);
 
     if (user && password === user?.password) {
       res.cookie("username", username, { signed: true });
@@ -17,6 +19,17 @@ export function loginApi(db) {
     } else {
       res.sendStatus(401);
     }
+  });
+
+  api.post("/new", async (req, res) => {
+    const { username, password } = req.body;
+
+    const user = { username, password };
+
+    await db.collection(collection).insertOne(user);
+
+    res.cookie("username", username, { signed: true });
+    res.json({ username });
   });
 
   api.delete("/", (req, res) => {

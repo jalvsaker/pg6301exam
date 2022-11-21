@@ -7,13 +7,14 @@ import { Navigation } from "./navigation";
 import { Logout } from "./logout";
 
 import "./styles.css";
+import { Register } from "./register";
 
 function App() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("api/user");
+      const res = await fetch("api/login");
       setUser((await res.json()) || {});
     })();
   }, []);
@@ -23,6 +24,7 @@ function App() {
       <Navigation user={user} />
       <Routes>
         <Route path={"/"} element={<Homepage />} />
+        <Route path={"/register"} element={<Register setUser={setUser} />} />
         <Route path={"/login"} element={<Login setUser={setUser} />} />
         <Route path={"/logout"} element={<Logout setUser={setUser} />} />
         <Route path={"/*"} element={<Navigate to={"/"} />} />

@@ -6,6 +6,7 @@ export function Navigation({ user }) {
     <nav>
       <NavLink to={"/"}>Home</NavLink>
       {!user.username && <NavLink to={"/login"}>Log In</NavLink>}
+      {!user.username && <NavLink to={"/register"}>Register new user</NavLink>}
       {user.username && (
         <span>
           {user.username} <Link to={"/logout"}>Log out</Link>

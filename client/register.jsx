@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function Login({ setUser }) {
+export function Register({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -10,7 +10,7 @@ export function Login({ setUser }) {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const res = await fetch("/api/login", {
+    const res = await fetch("/api/login/new", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ username: username, password: password }),
@@ -26,7 +26,7 @@ export function Login({ setUser }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Log in:</h1>
+      <h1>Register new user:</h1>
       <div>
         <label>
           Username:{" "}

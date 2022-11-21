@@ -24,14 +24,10 @@ if (mongodbUrl) {
   });
 
   await client.connect();
-  app.use("/api/login", loginApi(client.db(dbName)));
   app.use(loginMiddleware(client.db(dbName)));
+  app.use("/api/login", loginApi(client.db(dbName)));
   app.use("/api/foods", foodApi(client.db(dbName)));
 }
-
-app.get("/api/user", (req, res) => {
-  res.json(req.user);
-});
 
 app.use(express.static("../client/dist"));
 
