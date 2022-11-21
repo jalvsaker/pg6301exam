@@ -9,6 +9,7 @@ import { Register } from "./login/register";
 import { Menu } from "./menu/menu";
 import { Admin } from "./admin/admin";
 import "./styles.css";
+import { Chat } from "./chat/chat";
 
 function App() {
   const [user, setUser] = useState({});
@@ -32,6 +33,7 @@ function App() {
         <Route path={"/login"} element={<Login setUser={setUser} />} />
         <Route path={"/logout"} element={<Logout setUser={setUser} />} />
         <Route path={"/admin"} element={<Admin user={user} />} />
+        <Route path={"/chat"} element={<Chat user={user} />} />
         <Route path={"/*"} element={<Navigate to={"/"} />} />
       </Routes>
     </BrowserRouter>
@@ -40,7 +42,7 @@ function App() {
 
 const root = createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <React.Fragment>
     <App />
-  </React.StrictMode>
+  </React.Fragment>
 );

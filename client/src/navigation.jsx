@@ -10,6 +10,7 @@ export function Navigation({ user }) {
       {user.username && (
         <>
           <span>Welcome {user.username}</span>
+          <Link to={"/chat"}>Chat</Link>
           <Link to={"/logout"}>Log out</Link>
         </>
       )}

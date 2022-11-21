@@ -6,6 +6,7 @@ import { foodApi } from "./foodApi.js";
 import { loginApi, loginMiddleware } from "./loginApi.js";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import { WebSocketServer } from "ws";
 
 dotenv.config();
 const app = express();
@@ -39,7 +40,24 @@ app.use((req, res, next) => {
   }
 });
 
+const sockets = [];
+const wsServer = new WebSocketServer({ noServer: true });
+
+wsServer.on("connection", (socket) => {
+  sockets.push(socket);
+  socket.on("message", (message) => {
+    for (const recipient of sockets) {
+      recipient.send(message.toString());
+    }
+  });
+});
+
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
+  server.on("upgrade", (req, socket, head) => {
+    wsServer.handleUpgrade(req, socket, head, (socket) => {
+      wsServer.emit("connection", socket, req);
+    });
+  });
 });
