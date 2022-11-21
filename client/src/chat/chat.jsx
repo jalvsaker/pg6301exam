@@ -6,7 +6,7 @@ export function Chat({ user }) {
   const [ws, setWs] = useState();
 
   useEffect(() => {
-    const ws = new WebSocket("ws://" + window.location.host);
+    const ws = new WebSocket(window.location.origin.replace(/^http/, "ws"));
     ws.onmessage = (event) => {
       const { username, message } = JSON.parse(event.data);
       setMessages((messages) => [...messages, { username, message }]);
