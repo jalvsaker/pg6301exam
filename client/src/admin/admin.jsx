@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AddFood } from "./addFood";
+import { ChangeFood } from "./changeFood";
 
 export function Admin({ user }) {
   const navigate = useNavigate();
@@ -35,10 +36,13 @@ export function Admin({ user }) {
     <>
       <h1>Admin panel</h1>
 
+      <h3>Add new foods:</h3>
       <AddFood reload={reload} />
 
+      <h3>Change previous foods:</h3>
+
       {foods.map((food) => (
-        <div key={food._id}>{food.name}</div>
+        <ChangeFood key={food._id} food={food} reload={reload}/>
       ))}
     </>
   );

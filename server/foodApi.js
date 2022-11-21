@@ -16,9 +16,8 @@ export function foodApi(db) {
       return res.sendStatus(401);
     }
 
-    const result = await db.collection(collection).insertOne(req.body);
+    await db.collection(collection).insertOne(req.body);
 
-    console.log(result);
     res.sendStatus(200);
   });
 
@@ -40,7 +39,7 @@ export function foodApi(db) {
     }
   });
 
-  api.put("/:id", async (req, res) => {
+  api.delete("/:id", async (req, res) => {
     if (!req.user?.isAdmin) {
       return res.sendStatus(401);
     }

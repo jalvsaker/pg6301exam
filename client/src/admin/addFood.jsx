@@ -1,42 +1,18 @@
-import { useState } from "react";
+import { FoodForm } from "./foodForm";
 
-export function AddFood({ reload }) {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
+export function AddFood({reload}){
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    const body = { name, price };
-
+  async function submit(body) {
     await fetch("/api/foods", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(body),
+      body: JSON.stringify(body)
     });
 
     reload();
   }
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input
-          type={"text"}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <label>
-        Price:
-        <input
-          type={"number"}
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-      </label>
-      <button>Submit</button>
-    </form>
-  );
+
+  return <FoodForm onSubmit={submit} buttonText={"Add"} resetAfter={true}/>
 }
+

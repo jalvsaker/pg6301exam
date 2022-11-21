@@ -5,6 +5,10 @@ export function loginApi(db) {
   const collection = "users";
 
   api.get("/", (req, res) => {
+    if (!req.user){
+      return res.sendStatus(401)
+    }
+
     const { username, isAdmin } = req.user;
     res.json({ username, isAdmin });
   });
