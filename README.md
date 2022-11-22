@@ -18,10 +18,7 @@ For admin access use username `admin` and password `admin`
   * Edit existing foods
   * Delete foods from the menu
   * See orders
-* ~80 % test coverage on frontend
-
-## Problems
-* Low test coverage on server do to problems with running tests on the server
+* more than 80% test coverage (check GitHub action run)
 
 ## Endpoints:
 * /api/login
