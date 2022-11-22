@@ -2,6 +2,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { act, Simulate } from "react-dom/test-utils";
 import { ChatApp } from "../src/chat/chatApp";
+import { Chat } from "../src/chat/chat";
+
 
 describe("chat tests", function () {
   it("should submit chat", async () => {
@@ -34,5 +36,18 @@ describe("chat tests", function () {
 
     expect(element.innerHTML).toMatchSnapshot();
     expect(mock).toBeCalledWith("hei");
+  });
+
+  it("should show chat", async () => {
+    const element = document.createElement("div");
+    const root = createRoot(element);
+
+    await act(() => {
+      root.render(
+        <Chat/>
+      );
+    });
+
+    expect(element.innerHTML).toMatchSnapshot();
   });
 });

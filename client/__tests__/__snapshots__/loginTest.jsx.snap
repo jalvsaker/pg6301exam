@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login test should show logout 1`] = `"Logging out..."`;
+
+exports[`login test should submit login 1`] = `"<form><h1>Log in:</h1><div><label>Username: <input type="text" value="username"></label></div><div><label>Password: <input type="password" value="password"></label></div><button>Log in</button></form>"`;
+
+exports[`login test should submit register 1`] = `"<form><h1>Register new user:</h1><div><label>Username: <input type="text" value="username"></label></div><div><label>Password: <input type="password" value="password"></label></div><button>Log in</button></form>"`;
