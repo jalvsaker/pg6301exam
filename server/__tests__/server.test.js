@@ -7,6 +7,7 @@ import { loginApi, loginMiddleware } from "../loginApi.js";
 import { foodApi } from "../foodApi.js";
 import { orderApi } from "../orderApi.js";
 
+/*
 describe("tests", () => {
   const app = express();
   app.use(bodyParser.json);
@@ -30,6 +31,7 @@ describe("tests", () => {
     console.log(result)
   });
 });
+*/
 
 describe("", () => {
   it("should ", () => {

@@ -16,6 +16,10 @@ Can be slow to start after a period of inactivity.
   * Edit existing foods
   * Delete foods from the menu
   * See orders
+* ~80 % test coverage on frontend
+
+## Problems
+* Low test coverage on server do to problems with running tests on the server
 
 ## Endpoints:
 * /api/login
