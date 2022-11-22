@@ -45,8 +45,6 @@ describe("server test suite", () => {
   it("should get foods", async () => {
     const agent = request.agent(app);
     const response = await agent.get("/api/foods");
-    await agent.put("/api/foods/hahaha");
-    await agent.delete("/api/foods/hahaha");
 
     expect(response.status).toEqual(200);
   });

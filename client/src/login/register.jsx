@@ -21,7 +21,7 @@ export function Register({ setUser }) {
       setUser(await res.json());
       navigate("/");
     } else {
-      alert(`${res.status} ${res.statusText}`);
+      alert(`Server returned error, user may already exist`);
     }
   }
 
@@ -35,6 +35,7 @@ export function Register({ setUser }) {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
         </label>
       </div>
@@ -45,6 +46,7 @@ export function Register({ setUser }) {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </label>
       </div>
