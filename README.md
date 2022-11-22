@@ -6,6 +6,8 @@
 [Azure Deployment](http://pg6301exam-1038.azurewebsites.net/)
 Can be slow to start after a period of inactivity.
 
+For admin access use username `admin` and password `admin`
+
 ## Features: 
 * Everyone can see the menu.
 * Log in/ registering of users.
