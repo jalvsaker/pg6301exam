@@ -6,7 +6,7 @@ export function Food({ food, setCart, disabled }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const newItem = { food, amount };
+    const newItem = { food, amount: parseInt(amount) };
 
     setCart((cart) => {
       return [

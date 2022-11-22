@@ -10,9 +10,11 @@ import { Menu } from "./menu/menu";
 import { Admin } from "./admin/admin";
 import "./styles.css";
 import { Chat } from "./chat/chat";
+import { ShowOrders } from "./admin/showOrders";
 
 function App() {
   const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     (async () => {
@@ -20,8 +22,13 @@ function App() {
       if (res.ok) {
         setUser((await res.json()) || {});
       }
+      setLoading(false)
     })();
   }, []);
+
+  if (loading){
+    return "Loading..."
+  }
 
   return (
     <BrowserRouter>
@@ -33,6 +40,7 @@ function App() {
         <Route path={"/login"} element={<Login setUser={setUser} />} />
         <Route path={"/logout"} element={<Logout setUser={setUser} />} />
         <Route path={"/admin"} element={<Admin user={user} />} />
+        <Route path={"/admin/orders"} element={<ShowOrders user={user}/>} />
         <Route path={"/chat"} element={<Chat user={user} />} />
         <Route path={"/*"} element={<Navigate to={"/"} />} />
       </Routes>

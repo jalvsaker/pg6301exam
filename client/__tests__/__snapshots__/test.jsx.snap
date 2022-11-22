@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`tests should show Admin panel 1`] = `"<h1>Admin panel</h1><h3>Add new foods:</h3><form><div><label>Name:<input type="text" value=""></label></div><div><label>Price:<input type="number" value=""></label></div><button>Add</button></form><h3>Change previous foods:</h3>"`;
+exports[`tests should show Admin panel 1`] = `"<h1>Admin panel</h1><a href="/admin/orders">Show orders</a><hr><h3>Add new foods:</h3><form><div><label>Name:<input type="text" value=""></label></div><div><label>Price:<input type="number" value=""></label></div><button>Add</button></form><h3>Change previous foods:</h3>"`;
 
 exports[`tests should show addFood 1`] = `"<form><div><label>Name:<input type="text" value=""></label></div><div><label>Price:<input type="number" value=""></label></div><button>Add</button></form>"`;
 

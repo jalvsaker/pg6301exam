@@ -41,7 +41,6 @@ export function Menu({ user }) {
     <>
       <h1>Menu</h1>
       {!user.username && <h4>Log in to order</h4>}
-      <Cart cart={cart} order={order} disabled={!user.username} />
       {foods.map((food) => (
         <Food
           food={food}
@@ -50,6 +49,7 @@ export function Menu({ user }) {
           disabled={!user.username}
         />
       ))}
+      <Cart cart={cart} order={order} disabled={!user.username} />
     </>
   );
 }

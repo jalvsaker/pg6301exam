@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AddFood } from "./addFood";
 import { ChangeFood } from "./changeFood";
@@ -7,9 +7,11 @@ import { ChangeFood } from "./changeFood";
 export function Admin({ user }) {
   const navigate = useNavigate();
 
-  if (!user.isAdmin) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (!user.isAdmin) {
+      navigate("/");
+    }
+  }, []);
 
   const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -36,6 +38,8 @@ export function Admin({ user }) {
   return (
     <>
       <h1>Admin panel</h1>
+      <Link to={"/admin/orders"}>Show orders</Link>
+      <hr />
 
       <h3>Add new foods:</h3>
       <AddFood reload={reload} />
