@@ -4,11 +4,12 @@ import { useState } from "react";
 export function FoodForm({ onSubmit, food, buttonText, resetAfter }) {
   const [name, setName] = useState(food?.name || "");
   const [price, setPrice] = useState(food?.price || "");
+  const [description, setDescription] = useState(food?.description || "");
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const body = { name, price };
+    const body = { name, price, description };
 
     await onSubmit(body);
 
@@ -38,6 +39,17 @@ export function FoodForm({ onSubmit, food, buttonText, resetAfter }) {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
+        </label>
+      </div>
+      <div>
+        <label>
+          Description:
+          <textarea
+            cols="30"
+            rows="4"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          ></textarea>
         </label>
       </div>
       <button>{buttonText}</button>

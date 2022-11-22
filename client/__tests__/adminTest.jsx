@@ -139,7 +139,11 @@ describe("admin tests", function () {
     });
 
     expect(element.innerHTML).toMatchSnapshot();
-    expect(mock).toBeCalledWith({ name: "foodname", price: "12" });
+    expect(mock).toBeCalledWith({
+      name: "foodname",
+      price: "12",
+      description: "",
+    });
   });
 
   it("should show orders", async () => {
