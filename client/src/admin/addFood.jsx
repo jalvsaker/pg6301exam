@@ -1,3 +1,4 @@
+import React from "react";
 import { FoodForm } from "./foodForm";
 
 export function AddFood({ reload }) {

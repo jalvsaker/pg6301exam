@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`tests should show addFood 1`] = `"<form><div><label>Name:<input type="text" value=""></label></div><div><label>Price:<input type="number" value=""></label></div><button>Add</button></form>"`;
+
+exports[`tests should show changeFood 1`] = `"<form><div><label>Name:<input type="text" value=""></label></div><div><label>Price:<input type="number" value=""></label></div><button>Update</button></form><button>Delete</button><hr>"`;
+
 exports[`tests should show homepage 1`] = `"<h1>Bob's Catering</h1><p>Welcome to Bob's catering. Mediocre food to mediocre prices.</p><a href="/menu">See the menu</a>"`;
 
 exports[`tests should show nav menu 1`] = `"<nav><a aria-current="page" class="active" href="/">Home</a><span>Welcome name</span><a href="/chat">Chat</a><a href="/logout">Log out</a><a class="" href="/admin">Admin panel</a></nav>"`;
+
+exports[`tests should submit chat 1`] = `"<h1>Chat</h1><hr><div><strong>user 1</strong> - Hello<hr></div><div><strong>user 2</strong> - Hey<hr></div><form><input type="text" value=""><button>Send</button></form>"`;
 
 exports[`tests should submit food form 1`] = `"<form><div><label>Name:<input type="text" value="foodname"></label></div><div><label>Price:<input type="number" value="12"></label></div><button></button></form>"`;
