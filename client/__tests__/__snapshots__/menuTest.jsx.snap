@@ -2,4 +2,6 @@
 
 exports[`menu test should show Food 1`] = `"<div>banana - 1<form><label>Amount:<input type="number" value="2"> </label><button>Add to cart</button></form><hr></div>"`;
 
-exports[`menu test should show menu 1`] = `"<h1>Menu</h1><h3>Cart:</h3><ul></ul><div>Price: 0.00</div><form><input type="time" value=""><button>Order</button></form><hr>"`;
+exports[`menu test should show cart 1`] = `"<h3>Cart:</h3><ul><li>2x banana - 12</li></ul><div>Price: 24.00</div><form><input type="time" value=""><button>Order</button></form><hr>"`;
+
+exports[`menu test should show menu 1`] = `"<h1>Menu</h1><div>banana - 4<form><label>Amount:<input type="number" value="0"> </label><button>Add to cart</button></form><hr></div><div>apple - 14<form><label>Amount:<input type="number" value="0"> </label><button>Add to cart</button></form><hr></div><h3>Cart:</h3><ul></ul><div>Price: 0.00</div><form><input type="time" value=""><button>Order</button></form><hr>"`;

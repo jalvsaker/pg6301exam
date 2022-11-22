@@ -13,22 +13,58 @@ describe("admin tests", function () {
     const element = document.createElement("div");
     const root = createRoot(element);
 
-    await act(() => {
-      root.render(<AddFood />);
+    global.fetch = jest.fn(() => {
+      return {
+        ok: false,
+        json: () => {
+          return [];
+        },
+      };
     });
 
+    const mock = jest.fn()
+
+    await act(() => {
+      root.render(<AddFood reload={mock} />);
+    });
+
+    await act(()=> {
+      Simulate.submit(element.querySelector("form"))
+    })
+
     expect(element.innerHTML).toMatchSnapshot();
+    expect(global.fetch).toHaveBeenCalled();
   });
 
   it("should show changeFood", async () => {
     const element = document.createElement("div");
     const root = createRoot(element);
 
-    await act(() => {
-      root.render(<ChangeFood />);
+    global.fetch = jest.fn(() => {
+      return {
+        ok: false,
+        json: () => {
+          return [];
+        },
+      };
     });
 
+    const mock = jest.fn()
+
+    await act(() => {
+      root.render(<ChangeFood food={{_id: 1}} reload={mock}/>);
+    });
+
+    await act(()=> {
+      Simulate.submit(element.querySelector("form"))
+    })
+
+    await act(() => {
+      Simulate.click(element.querySelectorAll("button")[1])
+    })
+
     expect(element.innerHTML).toMatchSnapshot();
+    expect(global.fetch).toHaveBeenCalled();
   });
 
   it("should show Admin panel", async () => {
@@ -48,6 +84,30 @@ describe("admin tests", function () {
       root.render(
         <MemoryRouter>
           <Admin user={{ isAdmin: true }} />
+        </MemoryRouter>
+      );
+    });
+
+    expect(element.innerHTML).toMatchSnapshot();
+  });
+
+  it("should show not show Admin panel because user is not admin", async () => {
+    const element = document.createElement("div");
+    const root = createRoot(element);
+
+    global.fetch = jest.fn(() => {
+      return {
+        ok: true,
+        json: () => {
+          return [];
+        },
+      };
+    });
+
+    await act(() => {
+      root.render(
+        <MemoryRouter>
+          <Admin user={{ isAdmin: false }} />
         </MemoryRouter>
       );
     });

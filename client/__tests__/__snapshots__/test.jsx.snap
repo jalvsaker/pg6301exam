@@ -2,4 +2,8 @@
 
 exports[`tests should show homepage 1`] = `"<h1>Bob's Catering</h1><p>Welcome to Bob's catering. Mediocre food to mediocre prices.</p><a href="/menu">See the menu</a>"`;
 
-exports[`tests should show nav menu 1`] = `"<nav><a aria-current="page" class="active" href="/">Home</a><span>Welcome name</span><a href="/chat">Chat</a><a href="/logout">Log out</a><a class="" href="/admin">Admin panel</a></nav>"`;
+exports[`tests should show nav menu logged in 1`] = `"<nav><a aria-current="page" class="active" href="/">Home</a><span>Welcome name</span><a href="/chat">Chat</a><a href="/logout">Log out</a></nav>"`;
+
+exports[`tests should show nav menu logged in admin 1`] = `"<nav><a aria-current="page" class="active" href="/">Home</a><span>Welcome name</span><a href="/chat">Chat</a><a href="/logout">Log out</a><a class="" href="/admin">Admin panel</a></nav>"`;
+
+exports[`tests should show nav menu no user 1`] = `"<nav><a aria-current="page" class="active" href="/">Home</a><a class="" href="/login">Log In</a><a class="" href="/register">Register new user</a></nav>"`;
