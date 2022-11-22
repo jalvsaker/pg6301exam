@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`menu test should show Food 1`] = `"<div>banana - 1<form><label>Amount:<input type="number" value="2"> </label><button>Add to cart</button></form><hr></div>"`;
+
+exports[`menu test should show menu 1`] = `"<h1>Menu</h1><h3>Cart:</h3><ul></ul><div>Price: 0.00</div><form><input type="time" value=""><button>Order</button></form><hr>"`;
