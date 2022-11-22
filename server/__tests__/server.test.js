@@ -1,13 +1,13 @@
-/*import express from "express";
+import express from "express";
 import request from "supertest";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import { MongoClient } from "mongodb";*/
+import { MongoClient } from "mongodb";
 import { loginApi, loginMiddleware } from "../loginApi.js";
 import { foodApi } from "../foodApi.js";
 import { orderApi } from "../orderApi.js";
 
-/*describe("tests", () => {
+describe("tests", () => {
   const app = express();
   app.use(bodyParser.json);
   dotenv.config();
@@ -23,12 +23,13 @@ import { orderApi } from "../orderApi.js";
     await mongoClient.close();
   });
 
-  it("should do something", async () => {
-    const result = request(app).get("/api/login").expect(404).end();
+  it("should do something",  async () => {
+    const agent = await request(app).agent;
+    const result = await agent.get("/api/login").expect(404).end();
 
     console.log(result)
   });
-});*/
+});
 
 describe("", () => {
   it("should ", () => {
