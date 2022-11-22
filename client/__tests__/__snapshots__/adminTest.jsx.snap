@@ -8,6 +8,6 @@ exports[`admin tests should show changeFood 1`] = `"<form><div><label>Name:<inpu
 
 exports[`admin tests should show not show Admin panel because user is not admin 1`] = `"<h1>Admin panel</h1><a href="/admin/orders">Show orders</a><hr><h3>Add new foods:</h3><form><div><label>Name:<input type="text" value=""></label></div><div><label>Price:<input type="number" value=""></label></div><button>Add</button></form><h3>Change previous foods:</h3>"`;
 
-exports[`admin tests should show orders 1`] = `"<h2>Orders:</h2><a href="/admin">&lt;-Back</a><div><h4>Order by user hei to be delivered at 12:32</h4><h5>Total price: 41.00</h5><ul><li>5 Burgers 8.2</li></ul><hr></div><div><h4>Order by user hallo to be delivered at 12:59</h4><h5>Total price: 42.60</h5><ul><li>3 Burgers 8.2</li><li>3 Pizza 6</li></ul><hr></div>"`;
+exports[`admin tests should show orders 1`] = `"<h2>Orders:</h2><a href="/admin">&lt;-Back</a><div><h4>Order by user hei to be delivered at 12:32</h4><h5>Total price: $41.00</h5><ul><li>5 Burgers $8.2</li></ul><hr></div><div><h4>Order by user hallo to be delivered at 12:59</h4><h5>Total price: $42.60</h5><ul><li>3 Burgers $8.2</li><li>3 Pizza $6</li></ul><hr></div>"`;
 
 exports[`admin tests should submit food form 1`] = `"<form><div><label>Name:<input type="text" value="foodname"></label></div><div><label>Price:<input type="number" value="12"></label></div><button></button></form>"`;

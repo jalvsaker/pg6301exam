@@ -18,11 +18,11 @@ export function Cart({ cart, order, disabled }) {
       <ul>
         {cart.map((item) => (
           <li key={item.food._id}>
-            {item.amount}x {item.food.name} - {item.food.price}
+            {item.amount}x {item.food.name} - ${item.food.price}
           </li>
         ))}
       </ul>
-      <div>Price: {totalPrice.toFixed(2)}</div>
+      <div>Total price: ${totalPrice.toFixed(2)}</div>
       <form onSubmit={handleClick}>
         <input
           type="time"

@@ -18,7 +18,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("api/login");
+      const res = await fetch("/api/login");
       if (res.ok) {
         setUser((await res.json()) || {});
       }

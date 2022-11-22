@@ -35,11 +35,11 @@ export function ShowOrders({ user }) {
           <h4>
             Order by user {order.username} to be delivered at {order.time}
           </h4>
-          <h5>Total price: {order.totalPrice.toFixed(2)}</h5>
+          <h5>Total price: ${order.totalPrice.toFixed(2)}</h5>
           <ul>
             {order.cart.map((item) => (
               <li key={item.name}>
-                {item.amount} {item.name} {item.price}
+                {item.amount} {item.name} ${item.price}
               </li>
             ))}
           </ul>
