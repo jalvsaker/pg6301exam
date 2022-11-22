@@ -4,7 +4,6 @@ import { act, Simulate } from "react-dom/test-utils";
 import { ChatApp } from "../src/chat/chatApp";
 import { Chat } from "../src/chat/chat";
 
-
 describe("chat tests", function () {
   it("should submit chat", async () => {
     const element = document.createElement("div");
@@ -43,9 +42,7 @@ describe("chat tests", function () {
     const root = createRoot(element);
 
     await act(() => {
-      root.render(
-        <Chat/>
-      );
+      root.render(<Chat />);
     });
 
     expect(element.innerHTML).toMatchSnapshot();

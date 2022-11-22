@@ -6,8 +6,7 @@ import React from "react";
 import { Login } from "../src/login/login";
 import { Register } from "../src/login/register";
 
-
-describe("login test", function() {
+describe("login test", function () {
   it("should show logout", async () => {
     global.fetch = jest.fn(() => {
       return {
@@ -21,12 +20,12 @@ describe("login test", function() {
     const element = document.createElement("div");
     const root = createRoot(element);
 
-    const mock = jest.fn()
+    const mock = jest.fn();
 
     await act(() => {
       root.render(
         <MemoryRouter>
-          <Logout setUser={mock}/>
+          <Logout setUser={mock} />
         </MemoryRouter>
       );
     });
@@ -52,7 +51,9 @@ describe("login test", function() {
 
     await act(() => {
       root.render(
-        <MemoryRouter><Login setUser={mock}/></MemoryRouter>
+        <MemoryRouter>
+          <Login setUser={mock} />
+        </MemoryRouter>
       );
     });
 
@@ -91,7 +92,9 @@ describe("login test", function() {
 
     await act(() => {
       root.render(
-        <MemoryRouter><Login setUser={mock}/></MemoryRouter>
+        <MemoryRouter>
+          <Login setUser={mock} />
+        </MemoryRouter>
       );
     });
 
@@ -131,7 +134,9 @@ describe("login test", function() {
 
     await act(() => {
       root.render(
-        <MemoryRouter><Register setUser={mock}/></MemoryRouter>
+        <MemoryRouter>
+          <Register setUser={mock} />
+        </MemoryRouter>
       );
     });
 
@@ -169,7 +174,9 @@ describe("login test", function() {
 
     await act(() => {
       root.render(
-        <MemoryRouter><Register setUser={mock}/></MemoryRouter>
+        <MemoryRouter>
+          <Register setUser={mock} />
+        </MemoryRouter>
       );
     });
 

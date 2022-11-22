@@ -28,7 +28,7 @@ describe("tests", () => {
     await act(() => {
       root.render(
         <MemoryRouter>
-          <Navigation user={{ username: "name"}} />
+          <Navigation user={{ username: "name" }} />
         </MemoryRouter>
       );
     });

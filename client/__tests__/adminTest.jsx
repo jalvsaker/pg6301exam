@@ -22,15 +22,15 @@ describe("admin tests", function () {
       };
     });
 
-    const mock = jest.fn()
+    const mock = jest.fn();
 
     await act(() => {
       root.render(<AddFood reload={mock} />);
     });
 
-    await act(()=> {
-      Simulate.submit(element.querySelector("form"))
-    })
+    await act(() => {
+      Simulate.submit(element.querySelector("form"));
+    });
 
     expect(element.innerHTML).toMatchSnapshot();
     expect(global.fetch).toHaveBeenCalled();
@@ -49,19 +49,19 @@ describe("admin tests", function () {
       };
     });
 
-    const mock = jest.fn()
+    const mock = jest.fn();
 
     await act(() => {
-      root.render(<ChangeFood food={{_id: 1}} reload={mock}/>);
+      root.render(<ChangeFood food={{ _id: 1 }} reload={mock} />);
     });
 
-    await act(()=> {
-      Simulate.submit(element.querySelector("form"))
-    })
+    await act(() => {
+      Simulate.submit(element.querySelector("form"));
+    });
 
     await act(() => {
-      Simulate.click(element.querySelectorAll("button")[1])
-    })
+      Simulate.click(element.querySelectorAll("button")[1]);
+    });
 
     expect(element.innerHTML).toMatchSnapshot();
     expect(global.fetch).toHaveBeenCalled();
@@ -152,43 +152,47 @@ describe("admin tests", function () {
         json: () => {
           return [
             {
-              "_id": "1",
-              "username": "hei",
-              "totalPrice": 41,
-              "time": "12:32",
-              "cart": [
+              _id: "1",
+              username: "hei",
+              totalPrice: 41,
+              time: "12:32",
+              cart: [
                 {
-                  "name": "Burgers",
-                  "price": "8.2",
-                  "amount": "5"
-                }
-              ]
+                  name: "Burgers",
+                  price: "8.2",
+                  amount: "5",
+                },
+              ],
             },
             {
-              "_id": "2",
-              "username": "hallo",
-              "totalPrice": 42.6,
-              "time": "12:59",
-              "cart": [
+              _id: "2",
+              username: "hallo",
+              totalPrice: 42.6,
+              time: "12:59",
+              cart: [
                 {
-                  "name": "Burgers",
-                  "price": "8.2",
-                  "amount": 3
+                  name: "Burgers",
+                  price: "8.2",
+                  amount: 3,
                 },
                 {
-                  "name": "Pizza",
-                  "price": "6",
-                  "amount": 3
-                }
-              ]
-            }
+                  name: "Pizza",
+                  price: "6",
+                  amount: 3,
+                },
+              ],
+            },
           ];
         },
       };
     });
 
     await act(() => {
-      root.render(<MemoryRouter><ShowOrders user={{ isAdmin: true }} /></MemoryRouter>);
+      root.render(
+        <MemoryRouter>
+          <ShowOrders user={{ isAdmin: true }} />
+        </MemoryRouter>
+      );
     });
 
     expect(element.innerHTML).toMatchSnapshot();
