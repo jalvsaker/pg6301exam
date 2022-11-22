@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chat tests should submit chat 1`] = `"<h1>Chat</h1><hr><div><strong>user 1</strong> - Hello<hr></div><div><strong>user 2</strong> - Hey<hr></div><form><input type="text" value=""><button>Send</button></form>"`;

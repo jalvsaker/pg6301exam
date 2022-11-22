@@ -14,7 +14,7 @@ import { ShowOrders } from "./admin/showOrders";
 
 function App() {
   const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -22,12 +22,12 @@ function App() {
       if (res.ok) {
         setUser((await res.json()) || {});
       }
-      setLoading(false)
+      setLoading(false);
     })();
   }, []);
 
-  if (loading){
-    return "Loading..."
+  if (loading) {
+    return "Loading...";
   }
 
   return (
@@ -40,7 +40,7 @@ function App() {
         <Route path={"/login"} element={<Login setUser={setUser} />} />
         <Route path={"/logout"} element={<Logout setUser={setUser} />} />
         <Route path={"/admin"} element={<Admin user={user} />} />
-        <Route path={"/admin/orders"} element={<ShowOrders user={user}/>} />
+        <Route path={"/admin/orders"} element={<ShowOrders user={user} />} />
         <Route path={"/chat"} element={<Chat user={user} />} />
         <Route path={"/*"} element={<Navigate to={"/"} />} />
       </Routes>

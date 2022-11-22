@@ -1,10 +1,11 @@
+import React from "react";
 import { useState } from "react";
 
 export function Cart({ cart, order, disabled }) {
   const [time, setTime] = useState("");
 
   const prices = cart.map((i) => i.amount * i.food.price);
-  const totalPrice = prices.reduce((sum, i) => (sum + i), 0);
+  const totalPrice = prices.reduce((sum, i) => sum + i, 0);
 
   function handleClick(e) {
     e.preventDefault();
@@ -29,9 +30,7 @@ export function Cart({ cart, order, disabled }) {
           value={time}
           onChange={(e) => setTime(e.target.value)}
         />
-        <button disabled={disabled}>
-          Order
-        </button>
+        <button disabled={disabled}>Order</button>
       </form>
       <hr />
     </>
