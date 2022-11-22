@@ -20,9 +20,7 @@ export function Food({ food, setCart, disabled }) {
   return (
     <div>
       {food.name} - ${food.price}
-      <div>
-        {food.description}
-      </div>
+      <div>{food.description}</div>
       <form onSubmit={handleSubmit}>
         <label>
           Amount:

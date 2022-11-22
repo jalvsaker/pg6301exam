@@ -4,15 +4,15 @@ import cookieParser from "cookie-parser";
 import request from "supertest";
 import { foodApi } from "../foodApi.js";
 import { orderApi } from "../orderApi.js";
-import { loginApi, loginMiddleware } from "../loginApi.js";
+import { loginApi } from "../loginApi.js";
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser("cookie-secret"));
-const mock = jest.fn()
-app.use("/api/login",loginApi(mock))
-app.use("/api/foods", foodApi(mock))
-app.use("/api/orders", orderApi(mock))
+const mock = jest.fn();
+app.use("/api/login", loginApi(mock));
+app.use("/api/foods", foodApi(mock));
+app.use("/api/orders", orderApi(mock));
 
 describe("security test", () => {
   it("should not post food", async () => {
@@ -48,9 +48,5 @@ describe("security test", () => {
     const response = await agent.post("/api/orders");
 
     expect(response.status).toEqual(401);
-  });
-
-  it("should ", function() {
-    loginMiddleware(mock)
   });
 });
