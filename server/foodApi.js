@@ -6,6 +6,7 @@ export function foodApi(db) {
   const collection = "foods";
 
   api.get("/", async (req, res) => {
+    // Open for everyone
     const foods = await db.collection(collection).find({}).toArray();
 
     res.json(foods);

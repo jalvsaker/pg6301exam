@@ -14,6 +14,7 @@ export function loginApi(db) {
   });
 
   api.post("/", async (req, res) => {
+    // Open for everyone
     const { username, password } = req.body;
 
     const user = await db.collection(collection).findOne({ username });
@@ -29,6 +30,7 @@ export function loginApi(db) {
   });
 
   api.post("/new", async (req, res) => {
+    // Open for everyone
     const { username, password } = req.body;
 
     const user = { username, password };
