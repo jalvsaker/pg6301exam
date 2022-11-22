@@ -29,6 +29,7 @@ export function Cart({ cart, order, disabled }) {
           disabled={disabled}
           value={time}
           onChange={(e) => setTime(e.target.value)}
+          required
         />
         <button disabled={disabled}>Order</button>
       </form>
