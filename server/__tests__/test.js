@@ -30,3 +30,16 @@ describe("tests", () => {
   });
 });
 */
+
+import { foodApi } from "../foodApi.js";
+import { loginApi, loginMiddleware } from "../loginApi.js";
+import { orderApi } from "../orderApi.js";
+
+describe("", function() {
+  it("should ", function() {
+    foodApi()
+    loginApi()
+    loginMiddleware()
+    orderApi()
+  });
+});
