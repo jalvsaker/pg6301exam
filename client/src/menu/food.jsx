@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Food({ food, setCart, disabled}) {
+export function Food({ food, setCart, disabled }) {
   const [amount, setAmount] = useState("0");
 
   function handleSubmit(e) {

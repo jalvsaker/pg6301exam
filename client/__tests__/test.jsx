@@ -8,6 +8,7 @@ import { FoodForm } from "../src/admin/foodForm";
 import { AddFood } from "../src/admin/addFood";
 import { ChangeFood } from "../src/admin/changeFood";
 import { ChatApp } from "../src/chat/chatApp";
+import { Admin } from "../src/admin/admin";
 
 describe("tests", () => {
   it("should show nav menu", async () => {
@@ -62,6 +63,30 @@ describe("tests", () => {
     expect(element.innerHTML).toMatchSnapshot();
   });
 
+  it("should show Admin panel", async () => {
+    const element = document.createElement("div");
+    const root = createRoot(element);
+
+    global.fetch = jest.fn(() => {
+      return {
+        ok: true,
+        json: () => {
+          return [];
+        },
+      };
+    });
+
+    await act(() => {
+      root.render(
+        <MemoryRouter>
+          <Admin user={{ isAdmin: true }} />
+        </MemoryRouter>
+      );
+    });
+
+    expect(element.innerHTML).toMatchSnapshot();
+  });
+
   it("should submit food form", async () => {
     const element = document.createElement("div");
     const root = createRoot(element);
@@ -96,7 +121,15 @@ describe("tests", () => {
     const mock = jest.fn();
 
     await act(() => {
-      root.render(<ChatApp messages={[{username: "user 1", message: "Hello"},{username: "user 2", message: "Hey"}]} onNewMessage={mock} />);
+      root.render(
+        <ChatApp
+          messages={[
+            { username: "user 1", message: "Hello" },
+            { username: "user 2", message: "Hey" },
+          ]}
+          onNewMessage={mock}
+        />
+      );
     });
 
     await act(() => {

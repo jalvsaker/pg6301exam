@@ -23,7 +23,7 @@ export function orderApi(db) {
     await db.collection(collection).insertOne(req.body);
 
     res.sendStatus(200);
-  })
+  });
 
   return api;
 }
