@@ -19,11 +19,9 @@ export function loginApi(db) {
 
     const user = await db.collection(collection).findOne({ username });
 
-    const body = { username: user.username, isAdmin: user.isAdmin };
-
     if (user && password === user?.password) {
       res.cookie("username", username, { signed: true });
-      res.json(body);
+      res.json({ username: user.username, isAdmin: user.isAdmin });
     } else {
       res.sendStatus(401);
     }
