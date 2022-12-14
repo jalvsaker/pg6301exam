@@ -16,6 +16,7 @@ export function FoodForm({ onSubmit, food, buttonText, resetAfter }) {
     if (resetAfter) {
       setName("");
       setPrice("");
+      setDescription("");
     }
   }
 

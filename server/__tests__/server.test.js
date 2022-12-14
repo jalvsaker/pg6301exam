@@ -111,7 +111,7 @@ describe("server test suite", () => {
     expect(response.status).toEqual(200);
   });
 
-  it("should get new user and logou", async function () {
+  it("should get new user and logout", async function () {
     const agent = request.agent(app);
     const response = await agent
       .post("/api/login/new")
