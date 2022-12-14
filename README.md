@@ -30,7 +30,7 @@ For admin access use username `admin` and password `admin`
 * /api/foods
   * GET - public - get all foods on the menu
   * POST - admin only - add a new food to the menu
-* /api/:id
+* /api/foods/:id
   * PUT - admin only - change info about the food
   * DELETE - admin only - delete food
 * /api/orders
